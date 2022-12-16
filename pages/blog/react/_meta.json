@@ -1,0 +1,11 @@
+{
+  "intro": "Introducción a React",
+  "functional-components": "Functional Components",
+  "class-components": "Class Components",
+  "hooks": "Hooks",
+  "conceptos-avanzados": "Conceptos avanzados",
+  "context-api": "Context API",
+  "react-router": "React Router",
+  "backend": "Trabajar con backend",
+  "context-devtool": "React Context DevTool"
+}

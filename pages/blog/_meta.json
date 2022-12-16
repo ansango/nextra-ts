@@ -1,0 +1,25 @@
+{
+  "index": { "title": "Inicio" },
+  "-- Recursos --": {
+    "type": "separator",
+    "title": "Recursos"
+  },
+  "bookmarks": { "title": "Bookmarks 🔖" },
+  "chuletas": { "title": "Chuletas" },
+  "herramientas": { "title": "Herramientas" },
+  "-- Sistema --": {
+    "type": "separator",
+    "title": "Sistemas"
+  },
+  "linux": { "title": "Linux" },
+  "-- Lenguajes --": {
+    "type": "separator",
+    "title": "Lenguajes"
+  },
+  "javascript": { "title": "Javascript" },
+  "rust": { "title": "Rust" },
+  "-- Frameworks --": {
+    "type": "separator",
+    "title": "Frameworks"
+  }
+}

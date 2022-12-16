@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply !font-sans;
+}
+
+code,
+kbd,
+samp,
+pre {
+  @apply !font-mono;
+}
+
+h1 {
+  @apply !text-4xl !font-bold !my-4 sm:!my-10 sm:!text-5xl md:!my-12;
+}
