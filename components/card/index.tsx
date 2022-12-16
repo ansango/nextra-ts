@@ -85,7 +85,6 @@ export function Card({
 export function Cards({ children, num, ...props }) {
   const data = useMarkdownData();
   if (data && data.relatedPosts) {
-    console.log(data.relatedPosts);
     return (
       <div
         className={cn(styles.cards, "mt-4 gap-4")}
@@ -101,7 +100,7 @@ export function Cards({ children, num, ...props }) {
           if (post.slug) {
             return (
               <Link
-                key={i}
+                key={`${post.title}-${i}`}
                 href={post.slug}
                 className={cn(
                   styles.card,

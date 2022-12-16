@@ -23,11 +23,13 @@ const config: DocsThemeConfig = {
     title: "En esta página",
   },
   editLink: {
-    text: "Edita esta página",
+    text: "Edita esta página →",
   },
   feedback: {
-    content: "¿Tienes alguna sugerencia?",
+    content: "¿Alguna sugerencia? →",
   },
+  gitTimestamp: null,
+  darkMode: true,
 };
 
 export default config;

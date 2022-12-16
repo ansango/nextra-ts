@@ -42,7 +42,7 @@ Un \&str, por otro lado, es una ventana a otra cadena, ya sea que esa cadena sea
 
 Veamos cómo estos dos tipos de cadena pueden ser utilizados eficazmente modificando nuestra variable the_version para que sea un \&str y mientras estamos en ello, cambiemos la versión de nuestro compilador de markdown para que sea una versión más tradicional de los primeros prototipos (0.1) en lugar de 1000:
 
-```powershell
+```rs copy
 fn usage() {
     let the_version: &str = "0.1";
     println!("tinymd, a markdown compiler written by <YOUR NAME>");
@@ -56,7 +56,7 @@ La razón por la que decimos que toma prestado el valor allí es porque técnica
 
 El compilador de Rust es lo suficientemente inteligente como para inferir el tipo de the_version basándose en el valor proporcionado ("0.1"), así que podemos reescribir la declaración para omitir el tipo:
 
-```javascript
+```rs copy
 let the_version = "0.1";
 ```
 
@@ -68,7 +68,7 @@ Cuando Rust va a compilar nuestro programa, la cadena "0.1" se compila en el pro
 
 Nuestro programa se construirá y ejecutará sin problemas siempre que comentemos nuestra antigua función get_version(). Asegúrate de que tu main.rs se vea así ahora:
 
-```javascript
+```rs copy
 // Comenta esto por ahora; volveremos a ello pronto
 /*fn get_version() -> u16 {
     1000
@@ -85,17 +85,17 @@ fn main() {
 }
 ```
 
-```powershell
+```powershell copy
 cargo run -q
--> tinymd, a markdown compiler written by <YOUR NAME>
--> The Version: 0.1
+# -> tinymd, a markdown compiler written by <YOUR NAME>
+# -> The Version: 0.1
 ```
 
 Aunque se ejecuta bien, no hemos mejorado nada al introducir una versión de cadena en lugar de una versión entera. Lo que queremos hacer es extraer la versión real de la aplicación del archivo de manifiesto del proyecto (Cargo.toml). Rust nos da una macro para hacer precisamente eso: env!(), que devuelve el valor asociado a una clave concreta.
 
 Echemos un vistazo dentro de Cargo.toml ahora mismo, para ver con qué estamos trabajando:
 
-```powershell
+```toml
 [package]
 name = "tinymd"
 version = "0.1.0"
@@ -125,7 +125,7 @@ Observará que hay algunos campos en la lista de claves de cadena anterior que n
 
 Vaya al archivo Cargo.toml y añada entradas para la descripción y la página de inicio, luego modifique el nombre, los autores y la versión como considere oportuno:
 
-```powershell
+```toml
 [package]
 name = "tinymd"
 version = "0.1.0"
@@ -139,7 +139,7 @@ A continuación, vamos a crear una función que nos obtenga una de las variables
 
 Una forma es simplemente establecer el valor de la_versión para que sea el resultado de una llamada a env!():
 
-```javascript
+```rs copy
 // ...
 let the_version = env!("CARGO_PKG_VERSION");
 println!("Versión: {}", the_version);

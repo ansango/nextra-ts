@@ -19,7 +19,7 @@ Para empezar, vamos a crear un nuevo proyecto con `cargo`, el gestor de paquetes
 
 Vamos a armar este y todos los proyectos en Rust usando la herramienta `cargo`, pasando el argumento new y especificando lo que queremos:
 
-```powershell
+```powershell copy
 cargo new tinymd --bin
 ```
 
@@ -37,7 +37,7 @@ Dentro de un proyecto Rust recién creado, encontrarás **tres cosas**:
 
 Cada vez que creamos un nuevo proyecto como este, Rust nos mete algo de código por defecto. Abre src/main.rs y veamos qué podemos intuir sobre la sintaxis de Rust:
 
-```javascript
+```rs copy
 fn main() {
   println!("¡Hola, mundo!");
 }
@@ -59,7 +59,7 @@ Las macros facilitan la provisión de herramientas incluidas en la batería para
 
 Abre tu terminal y luego escribe:
 
-```powershell
+```powershell copy
 cargo build -q
 ```
 
@@ -71,7 +71,7 @@ Cuando Cargo termine de construir tu proyecto, tendrás una nueva carpeta llamad
 
 Para ejecutar nuestro proyecto actual:
 
-```powershell
+```powershell copy
 cargo run -q
 ```
 

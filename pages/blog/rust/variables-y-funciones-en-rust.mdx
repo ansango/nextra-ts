@@ -22,7 +22,7 @@ import { ArticleData } from "components";
 
 Una función se define con la palabra clave fn, así:
 
-```javascript
+```rs copy
 fn main() {
   println!("Hello, world!");
 }
@@ -30,7 +30,7 @@ fn main() {
 
 Por encima de nuestra función `main()`, vamos a crear una nueva función llamada `usage()`. Dentro de ella, utilizaremos la misma macro utilizada para escribir `"¡Hola, mundo!"` para dar salida al nombre y a una breve descripción de nuestra herramienta:
 
-```javascript
+```rs copy
 fn usage() {
   println!("tinymd, a markdown compiler written by <YOUR NAME>");
 }
@@ -42,9 +42,9 @@ fn main() {
 
 Sustituye `<YOUR NAME>` por tu nombre. Compila y ejecuta tu proyecto con cargo run -q, que siempre detectará automáticamente los cambios en tus archivos fuente y reconstruirá tu proyecto si es necesario:
 
-```powershell
+```powershell copy
 cargo run -q
-Hello, world!
+# -> Hello, world!
 ```
 
 ### ¿Para qué era `-q`?
@@ -64,9 +64,9 @@ cargo run
 
 Con ella:
 
-```powershell
+```powershell copy
 cargo run -q
--> Hello, world!
+# -> Hello, world!
 ```
 
 ### ¿Qué pasa si veo un mensaje de `warning: function is never used`?
@@ -89,7 +89,7 @@ Para ahorrar espacio, así es como compilaremos, construiremos y ejecutaremos el
 
 Ahora vamos a reemplazar el comando `println!` en la función principal con una llamada a `usage()`:
 
-```javascript
+```rs copy
 fn usage() {
   println!("tinymd, a markdown compiler written by <YOUR NAME>");
 }
@@ -101,9 +101,9 @@ fn main() {
 
 Por último, vamos a compilar, construir y ejecutar, todo en un solo comando:
 
-```powershell
+```powershell copy
 cargo run -q
--> tinymd, a markdown compiler written by <YOUR NAME>
+# -> tinymd, a markdown compiler written by <YOUR NAME>
 ```
 
 Con nuestra función `usage()` ya creada, vamos a iterar y hacer que devuelva un valor simple que podamos escribir en la ventana de la consola.
@@ -114,7 +114,7 @@ En esta sección, vamos a crear una función llamada `get_version()` que devolve
 
 Hemos visto antes que una función sin argumentos y sin valor de retorno se escribe así:
 
-```javascript
+```rs copy
 fn get_version() {
 }
 ```
@@ -140,7 +140,7 @@ Para devolver el valor 1000, podemos usar la palabra clave return (que hace exac
 
 Las siguientes funciones hacen exactamente lo mismo:
 
-```javascript
+```rs copy
 fn get_version() -> u16 {
   1000
 }
@@ -158,7 +158,7 @@ La forma aceptada en la comunidad de Rust es utilizar la palabra clave return s�
 
 Por ejemplo, si queremos imprimir alguna salida basada en el número de versión, haría algo como esto
 
-```javascript
+```rs copy
 fn get_version() -> u16 {
     let version = 1; // For the sake of example
     if version < 2 {
@@ -172,7 +172,7 @@ Este es un bloque de código sin sentido, pero puedes ver que el bloque se evalu
 
 Añadamos la nueva función `get_version()` a nuestro programa llamándola desde la macro `println!()` en `usage()`:
 
-```javascript
+```rs copy
 fn get_version() -> u16 {
     1000
 }
@@ -191,10 +191,10 @@ Aquí puedes ver cómo pasamos argumentos a `println!()` como lo haríamos con u
 
 Compila, construye y ejecuta:
 
-```powershell
+```powershell copy
 cargo run -q
--> tinymd, a markdown compiler written by <YOUR NAME>
--> Version 1000
+# -> tinymd, a markdown compiler written by <YOUR NAME>
+# -> Version 1000
 ```
 
 El entero de la versión está siendo impreso, y la macro println! puede inferir que es un entero basado en el tipo de retorno especificado por `get_version()`.
@@ -205,21 +205,21 @@ El primer tipo de variable que conoceremos es el entero.&#x20;
 
 Todas las variables en Rust se declaran poniendo su tipo después de su nombre. Por ejemplo, si queremos crear una variable entera para contener la versión de nuestra aplicación, declararíamos una variable versión así:
 
-```javascript
+```rs copy
 let version: u16;
 ```
 
 Recordemos que u16 es la abreviatura de entero de 16 bits sin signo.
 
-Las variables en Rust se declaran con la palabra clave let, y luego usamos dos puntos : para describir el tipo de la variable.&#x20;
+Las variables en Rust se declaran con la palabra clave let, y luego usamos dos puntos : para describir el tipo de la variable.
 
 Todas las variables deben ser declaradas de esta manera, a menos que el tipo de la variable pueda ser inferido por, por ejemplo, el valor de retorno de una función..
 
-Para almacenar nuestra versión arbitraria de la aplicación en una variable, vamos a declararla dentro del ámbito de la función usage().&#x20;
+Para almacenar nuestra versión arbitraria de la aplicación en una variable, vamos a declararla dentro del ámbito de la función usage().
 
 Entonces, en lugar de hacer que println! utilice la función get_version() para imprimir la versión, haremos que utilice nuestra variable:
 
-```javascript
+```rs copy
 fn get_version() -> u16 {
   1000
 }
@@ -240,7 +240,7 @@ Rust infiere el tipo de variable que queremos basándose en el valor de retorno 
 
 Podemos mejorar esto dejando que Rust infiera el tipo de the_version:
 
-```javascript
+```rs copy
 fn get_version() -> u16 {
   1000
 }
