@@ -14,6 +14,14 @@ export function Card({
   demo,
   href,
   ...props
+}: {
+  children?: React.ReactNode;
+  title: string;
+  icon?: React.ReactNode;
+  image?: React.ReactNode;
+  arrow?: boolean;
+  demo?: boolean;
+  href: string;
 }) {
   const animatedArrow = arrow ? (
     <span
@@ -82,7 +90,11 @@ export function Card({
   );
 }
 
-export function Cards({ children, num, ...props }) {
+export function Cards({ children, num, ...props }: {
+  children?: React.ReactNode;
+  num?: number;
+  style?: React.CSSProperties;
+}) {
   const data = useMarkdownData();
   if (data && data.relatedPosts) {
     return (
