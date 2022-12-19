@@ -1,0 +1,74 @@
+{
+  "intro": {
+    "title": "Introducción a React",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "functional-components": {
+    "title": "Functional Components",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "class-components": {
+    "title": "Class Components",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "hooks": {
+    "title": "Hooks",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "conceptos-avanzados": {
+    "title": "Conceptos avanzados",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "context-api": {
+    "title": "Context API",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "router": {
+    "title": "React Router",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "backend": {
+    "title": "Trabajar con backend",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "context-devtool": {
+    "title": "React Context DevTool",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}

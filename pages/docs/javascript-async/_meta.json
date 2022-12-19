@@ -1,0 +1,18 @@
+{
+  "ajax-async-await": {
+    "title": "Usar async await con jQuery y ajax",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "fetch-api": {
+    "title": "fetch API",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}

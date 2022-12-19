@@ -3,6 +3,7 @@ import { formatDate, useMarkdownData } from "lib";
 
 export const ArticleData: FC = () => {
   const data = useMarkdownData();
+  
   if (data) {
     const { title, publishedAt, summary, tags } = data;
     return (

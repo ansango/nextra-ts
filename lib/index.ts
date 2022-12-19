@@ -20,10 +20,10 @@ export const formatDate = (
 
 export const useMarkdownData = (): FrontMatterArticle | null => {
   const { asPath } = useRouter();
-  const folders = getPagesUnderRoute("/blog").filter(
+  const folders = getPagesUnderRoute("/docs").filter(
     (folder) => folder.kind === "Folder"
   ) as Folder<Page>[];
-  const files = getPagesUnderRoute("/blog").filter(
+  const files = getPagesUnderRoute("/docs").filter(
     (folder) => folder.kind === "MdxPage"
   ) as MdxFile[];
 

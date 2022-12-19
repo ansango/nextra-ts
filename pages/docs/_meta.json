@@ -1,0 +1,103 @@
+{
+  "index": {
+    "title": "Inicio",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
+  },
+  "-- Recursos --": {
+    "type": "separator",
+    "title": "Recursos"
+  },
+  "bookmarks": {
+    "title": "Bookmarks 🔖",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
+  },
+
+  "herramientas": {
+    "title": "Herramientas 🛠️",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
+  },
+
+  "-- Sistema --": {
+    "type": "separator",
+    "title": "Sistemas"
+  },
+  "ubuntu": {
+    "title": "Ubuntu 🐧",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
+  },
+  "-- Bases de datos --": {
+    "type": "separator",
+    "title": "Bases de datos"
+  },
+  "mongodb": {
+    "title": "MongoDB 🍃"
+  },
+
+  "-- Javascript --": {
+    "type": "separator",
+    "title": "Javascript 🫀"
+  },
+  "javascript": {
+    "title": "Resumen 📑",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "javascript-array": {
+    "title": "Array"
+  },
+  "javascript-async": {
+    "title": "Async"
+  },
+  "-- Rust --": {
+    "type": "separator",
+    "title": "Rust 🦀"
+  },
+  "rust-empezando": {
+    "title": "Empezando en Rust",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
+  },
+  "-- React --": {
+    "type": "separator",
+    "title": "React ⚛️"
+  },
+  "react-javascript": {
+    "title": "Javascript para React"
+  },
+  "react-apuntes": {
+    "title": "Apuntes de React",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
+  }
+}

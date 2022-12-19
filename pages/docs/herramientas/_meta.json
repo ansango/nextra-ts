@@ -1,0 +1,10 @@
+{
+  "vscode-plugins": {
+    "title": "Plugins para VS Code",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}

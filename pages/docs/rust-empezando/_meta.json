@@ -1,0 +1,26 @@
+{
+  "crear-un-nuevo-proyecto-en-rust": {
+    "title": "Crear un nuevo proyecto en Rust",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "variables-y-funciones-en-rust": {
+    "title": "Variables y funciones en Rust",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "strings-y-memoria": {
+    "title": "Strings y memoria",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "configuracion": {
+    "title": "Configuración",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "firefox-developer": {
+    "title": "Instalar Firefox Developer Edition",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "instalar-mongo": {
+    "title": "Instalar MongoDB",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "touchpad": {
+    "title": "Restaurar Touchpad",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}

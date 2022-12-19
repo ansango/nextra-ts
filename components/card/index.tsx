@@ -82,7 +82,7 @@ export function Card({
           "hover:text-gray-900 dark:hover:text-neutral-50"
         )}
       >
-        {icon}
+        {icon || markdown}
         {title}
         {animatedArrow}
       </span>
@@ -90,55 +90,27 @@ export function Card({
   );
 }
 
-export function Cards({ children, num, ...props }: {
+export function Cards({
+  children,
+  num,
+  ...props
+}: {
   children?: React.ReactNode;
   num?: number;
   style?: React.CSSProperties;
 }) {
-  const data = useMarkdownData();
-  if (data && data.relatedPosts) {
-    return (
-      <div
-        className={cn(styles.cards, "mt-4 gap-4")}
-        {...props}
-        style={
-          {
-            "--rows": num || 3,
-            ...props.style,
-          } as any
-        }
-      >
-        {data.relatedPosts.map((post, i) => {
-          if (post.slug) {
-            return (
-              <Link
-                key={`${post.title}-${i}`}
-                href={post.slug}
-                className={cn(
-                  styles.card,
-                  "group flex flex-col justify-start overflow-hidden rounded-lg border border-gray-200 bg-transparent text-current no-underline shadow-sm shadow-gray-100 transition-all duration-200 dark:border-neutral-800 dark:shadow-none",
-                  "hover:border-gray-300 hover:bg-slate-50 hover:shadow-md hover:shadow-gray-100 dark:hover:border-neutral-700 dark:hover:bg-neutral-900 dark:hover:shadow-none",
-                  "active:shadow-sm active:shadow-gray-200"
-                )}
-                {...props}
-              >
-                <span
-                  className={cn(
-                    styles.title,
-                    "gap-2 p-4 text-gray-700 dark:text-neutral-200",
-                    "hover:text-gray-900 dark:hover:text-neutral-50"
-                  )}
-                >
-                  {markdown}
-                  {post.title}
-                </span>
-              </Link>
-            );
-          }
-          return <></>;
-        })}
-      </div>
-    );
-  }
-  return null;
+  return (
+    <div
+      className={cn(styles.cards, "mt-4 gap-4")}
+      {...props}
+      style={
+        {
+          "--rows": num || 3,
+          ...props.style,
+        } as any
+      }
+    >
+      {children}
+    </div>
+  );
 }

@@ -1,0 +1,18 @@
+{
+  "js-react-uno": {
+    "title": "Primera parte",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "js-react-dos": {
+    "title": "Segunda parte",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}

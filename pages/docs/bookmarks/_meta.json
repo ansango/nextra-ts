@@ -1,0 +1,26 @@
+{
+  "formacion": {
+    "title": "Formación",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "configuraciones": {
+    "title": "Configuraciones",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "frontend-starter": {
+    "title": "Frontend Starter",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}

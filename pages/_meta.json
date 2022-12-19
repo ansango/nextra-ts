@@ -1,5 +1,5 @@
 {
   "index": { "title": "Inicio", "type": "page", "display": "hidden" },
-  "blog": { "title": "Blog", "type": "page" },
+  "docs": { "title": "Docs", "type": "page" },
   "sobremi": { "title": "Sobre mí", "type": "page" }
 }

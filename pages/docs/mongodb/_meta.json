@@ -1,0 +1,10 @@
+{
+  "resumen": {
+    "title": "Resumen 📑",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  }
+}
