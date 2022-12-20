@@ -1,6 +1,6 @@
 import cn from "clsx";
-import { Icon, IconProps } from "components/icons/icon";
-import markdown from "components/icons/markdown";
+import { Icon, type IconProps } from "components/icons/icon";
+import { type StaticImageData } from "next/image";
 
 import Link from "next/link";
 
@@ -19,7 +19,7 @@ export function Card({
   children?: React.ReactNode;
   title: string;
   icon?: IconProps["name"];
-  image?: React.ReactNode;
+  image?: React.ReactNode | string | StaticImageData;
   arrow?: boolean;
   demo?: boolean;
   href: string;

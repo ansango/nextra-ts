@@ -13,11 +13,23 @@
     "title": "Recursos"
   },
   "bookmarks": {
-    "title": "Bookmarks 🔖"
+    "title": "Bookmarks 🔖",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
   },
 
   "herramientas": {
-    "title": "Herramientas 🛠️"
+    "title": "Herramientas 🛠️",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
   },
 
   "-- Sistema --": {
@@ -38,7 +50,13 @@
     "title": "Bases de datos"
   },
   "mongodb": {
-    "title": "MongoDB 🍃"
+    "title": "MongoDB 🍃",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
   },
 
   "-- Javascript --": {
@@ -46,12 +64,16 @@
     "title": "Javascript 🫀"
   },
   "javascript": {
-    "title": "Resumen Javascript 📑",
+    "title": "Inicio",
     "theme": {
-      "breadcrumb": true,
-      "toc": true,
-      "pagination": true
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
     }
+  },
+  "javascript-resumen": {
+    "title": "Resumen 📑"
   },
   "javascript-array": {
     "title": "Array"
@@ -62,6 +84,15 @@
   "-- Rust --": {
     "type": "separator",
     "title": "Rust 🦀"
+  },
+  "rust": {
+    "title": "Inicio",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
   },
   "rust-empezando": {
     "title": "Empezando en Rust",
@@ -75,6 +106,15 @@
   "-- React --": {
     "type": "separator",
     "title": "React ⚛️"
+  },
+  "react": {
+    "title": "Inicio",
+    "theme": {
+      "breadcrumb": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false
+    }
   },
   "react-javascript": {
     "title": "Javascript para React"

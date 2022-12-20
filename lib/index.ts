@@ -90,3 +90,29 @@ export const usePinnedFiles = (): FrontMatterArticle[] => {
 
   return pinnedFiles;
 };
+
+export const usePinnedFilesByCategory = (
+  category: Category
+): FrontMatterArticle[] => {
+  const folders = getPagesUnderRoute("/docs").filter(
+    (folder) => folder.kind === "Folder"
+  ) as Folder<Page>[];
+  const files = getPagesUnderRoute("/docs").filter(
+    (folder) => folder.kind === "MdxPage"
+  ) as MdxFile[];
+
+  const articles = folders.flatMap((folder) => folder.children) as MdxFile[];
+  const allFiles = [...articles, ...files];
+
+  const pinnedFiles = allFiles
+    .map((file) => file.frontMatter)
+    .sort(
+      (a, b) =>
+        new Date(b?.publishedAt).getTime() - new Date(a?.publishedAt).getTime()
+    )
+    .filter((file) => file?.publishedAt)
+    .filter((file) => file?.pinned)
+    .filter((file) => file?.category === category) as FrontMatterArticle[];
+
+  return pinnedFiles;
+};

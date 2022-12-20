@@ -12,6 +12,9 @@ module.exports = {
         sans: ["Noto Sans", ...defaultTheme.fontFamily.sans],
         mono: ["Fira Code", ...defaultTheme.fontFamily.mono],
       },
+      aspectRatio: {
+        "12-6": "12/6.3",
+      },
     },
   },
   plugins: [require("@tailwindcss/line-clamp")],

@@ -1,18 +1,20 @@
-import { usePinnedFiles } from "lib";
+import { usePinnedFilesByCategory } from "lib";
+import { FC } from "react";
 import { Card, Cards } from "./card";
 import React from "./icons/react";
 
-export const PinnedArticles = () => {
-  const data = usePinnedFiles();
-
+export const PinnedArticlesCategory: FC<{ category: Category }> = ({
+  category,
+}) => {
+  const data = usePinnedFilesByCategory(category);
+  if (!data || data.length === 0) {
+    return null;
+  }
   return (
     <section className="space-y-5">
-      <h2 className="nx-font-semibold nx-tracking-tight nx-mt-10 nx-pb-1 nx-text-3xl contrast-more:nx-border-neutral-400 dark:nx-border-primary-100/10 contrast-more:dark:nx-border-neutral-400">
-        Destacados ✨
-      </h2>
       <Cards num={6}>
         {data
-          .map(({ publishedAt, title, category, slug }, i) => (
+          .map(({ publishedAt, title, slug }, i) => (
             <Card
               key={`${publishedAt}-${i}`}
               href={`/docs/${slug}/`}
