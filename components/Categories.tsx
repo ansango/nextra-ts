@@ -35,7 +35,7 @@ export const Categories = () => {
             title={name.charAt(0).toUpperCase() + name.slice(1)}
             arrow
             icon={name}
-            image={image}
+             image={image}
           >
             <div className="relative h-52">
               <div className="bg-white/10 dark:bg-white/5 z-10 absolute inset-0 w-full h-full"></div>
