@@ -1,4 +1,6 @@
-import { DocsThemeConfig } from "nextra-theme-docs";
+import { formatDate } from "lib";
+import { type DocsThemeConfig } from "nextra-theme-docs";
+
 const config: DocsThemeConfig = {
   logo: <span className="font-semibold">ansango</span>,
   project: {
@@ -28,7 +30,13 @@ const config: DocsThemeConfig = {
   feedback: {
     content: "¿Alguna sugerencia? →",
   },
-  gitTimestamp: null,
+  gitTimestamp: ({ timestamp }: { timestamp: Date }) => {
+    return (
+      <time dateTime={formatDate(timestamp)}>
+        Última actualización: {formatDate(timestamp)}
+      </time>
+    );
+  },
   darkMode: true,
 };
 

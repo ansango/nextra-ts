@@ -13,23 +13,11 @@
     "title": "Recursos"
   },
   "bookmarks": {
-    "title": "Bookmarks 🔖",
-    "theme": {
-      "breadcrumb": false,
-      "sidebar": true,
-      "toc": false,
-      "pagination": false
-    }
+    "title": "Bookmarks 🔖"
   },
 
   "herramientas": {
-    "title": "Herramientas 🛠️",
-    "theme": {
-      "breadcrumb": false,
-      "sidebar": true,
-      "toc": false,
-      "pagination": false
-    }
+    "title": "Herramientas 🛠️"
   },
 
   "-- Sistema --": {

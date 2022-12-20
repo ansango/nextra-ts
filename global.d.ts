@@ -1,6 +1,17 @@
 type Title = string;
 type Summary = string;
-type Category = string;
+
+type Category =
+  | "pinned"
+  | "markdown"
+  | "react"
+  | "javascript"
+  | "rust"
+  | "mongodb"
+  | "bookmarks"
+  | "herramientas"
+  | "ubuntu";
+
 type Tag = string;
 type PublishedAt = string;
 
@@ -15,5 +26,6 @@ type FrontMatterArticle = {
   category: Category;
   tags: Tag[];
   publishedAt: PublishedAt;
-  relatedPosts?: Post[];
+  slug: string;
+  pinned?: boolean;
 };
