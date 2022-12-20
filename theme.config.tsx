@@ -1,7 +1,29 @@
 import { formatDate } from "lib";
-import { type DocsThemeConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
+import { useConfig, type DocsThemeConfig } from "nextra-theme-docs";
+
+const Time = ({ timestamp }: { timestamp: Date }) => {
+  const { route } = useRouter();
+  if (route === "/") return null;
+  return (
+    <time dateTime={formatDate(timestamp)}>
+      Última actualización: {formatDate(timestamp)}
+    </time>
+  );
+};
+
+const gitTimestamp = ({ timestamp }: { timestamp: Date }) => (
+  <Time timestamp={timestamp} />
+);
 
 const config: DocsThemeConfig = {
+  useNextSeoProps() {
+    const { frontMatter } = useConfig();
+    return {
+      titleTemplate: "%s – ansango",
+      description: "ansango",
+    };
+  },
   logo: <span className="font-semibold">ansango</span>,
   project: {
     link: "https://github.com/ansango",
@@ -30,13 +52,7 @@ const config: DocsThemeConfig = {
   feedback: {
     content: "¿Alguna sugerencia? →",
   },
-  gitTimestamp: ({ timestamp }: { timestamp: Date }) => {
-    return (
-      <time dateTime={formatDate(timestamp)}>
-        Última actualización: {formatDate(timestamp)}
-      </time>
-    );
-  },
+  gitTimestamp,
   darkMode: true,
 };
 

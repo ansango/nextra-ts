@@ -8,9 +8,9 @@ export const PinnedArticles = () => {
   return (
     <section className="space-y-5">
       <h2 className="nx-font-semibold nx-tracking-tight nx-mt-10 nx-pb-1 nx-text-3xl contrast-more:nx-border-neutral-400 dark:nx-border-primary-100/10 contrast-more:dark:nx-border-neutral-400">
-        Artículos destacados
+        Destacados
       </h2>
-      <Cards num={3}>
+      <Cards num={6}>
         {data
           .map(({ publishedAt, title, category, slug }, i) => (
             <Card

@@ -13,7 +13,7 @@ const Article = ({
     <h3 className="nx-font-semibold nx-tracking-tight nx-mt-8 nx-text-2xl">
       {title}
     </h3>
-    <Cards num={3}>
+    <Cards num={6}>
       {data
         ?.sort((a, b) => (a.publishedAt > b.publishedAt ? -1 : 1))
         .map(({ publishedAt, title, category, slug }, i) => (

@@ -1,5 +1,12 @@
 {
-  "index": { "title": "Inicio", "type": "page", "display": "hidden" },
+  "index": {
+    "title": "Inicio",
+    "type": "page",
+    "display": "hidden",
+    "theme": {
+      "layout": "full"
+    }
+  },
   "docs": { "title": "Docs", "type": "page" },
   "sobremi": { "title": "Sobre mí", "type": "page" }
 }
