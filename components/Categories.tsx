@@ -40,13 +40,16 @@ export const Categories = () => {
             icon={name}
             image={image}
           >
-            {image && (
-              <Image
-                src={image}
-                alt={name}
-                className="aspect-12-6 object-cover"
-              />
-            )}
+            <div className="relative h-52">
+              <div className="bg-white/10 dark:bg-white/5 z-10 absolute inset-0 w-full h-full"></div>
+              {image && (
+                <Image
+                  src={image}
+                  alt={name}
+                  className="aspect-12-6 object-cover absolute inset-0 w-full h-full"
+                />
+              )}
+            </div>
           </Card>
         ))}
       </Cards>

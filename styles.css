@@ -16,3 +16,11 @@ pre {
 h1 {
   @apply !text-4xl !font-bold !my-4 sm:!my-10 sm:!text-5xl md:!my-12;
 }
+
+/* p,
+ul,
+li,
+ol,
+span {
+  @apply text-gray-600 dark:text-gray-400;
+} */

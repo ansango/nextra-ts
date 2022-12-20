@@ -54,6 +54,7 @@ const config: DocsThemeConfig = {
   },
   gitTimestamp,
   darkMode: true,
+  primaryHue: 265,
 };
 
 export default config;
