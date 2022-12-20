@@ -99,7 +99,7 @@
     "theme": {
       "breadcrumb": false,
       "sidebar": true,
-      "toc": false,
+      "toc": true,
       "pagination": false
     }
   },

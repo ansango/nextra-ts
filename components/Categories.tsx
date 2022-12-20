@@ -26,10 +26,7 @@ const categories: Categories = [
 
 export const Categories = () => {
   return (
-    <section>
-      <h2 className="nx-font-semibold nx-tracking-tight nx-mt-10 nx-pb-1 nx-text-3xl contrast-more:nx-border-neutral-400 dark:nx-border-primary-100/10 contrast-more:dark:nx-border-neutral-400">
-        Categorías
-      </h2>
+    <section className="mb-44">
       <Cards>
         {categories.map(({ image, name, url }, i) => (
           <Card
