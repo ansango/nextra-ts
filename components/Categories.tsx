@@ -35,7 +35,7 @@ export const Categories = () => {
           <Card
             key={`${name}-${i}`}
             href={url}
-            title={name}
+            title={name.charAt(0).toUpperCase() + name.slice(1)}
             arrow
             icon={name}
             image={image}
