@@ -4,16 +4,29 @@ import Link from "next/link";
 type Categories = {
   name: Category;
   url: string;
+  description?: string;
 }[];
 
 const categories: Categories = [
-  { name: "bookmarks", url: "/docs/bookmarks" },
-  { name: "herramientas", url: "/docs/herramientas" },
-  { name: "ubuntu", url: "/docs/ubuntu" },
-  { name: "mongodb", url: "/docs/mongodb" },
-  { name: "javascript", url: "/docs/javascript" },
-  { name: "rust", url: "/docs/rust" },
-  { name: "react", url: "/docs/react" },
+  {
+    name: "bookmarks",
+    url: "/docs/bookmarks",
+    description: "Lo que voy guardando en mis marcadores de internet",
+  },
+  {
+    name: "herramientas",
+    url: "/docs/herramientas",
+    description: "Herramientas y utilidades que uso",
+  },
+  {
+    name: "ubuntu",
+    url: "/docs/ubuntu",
+    description: "Configuraciones, aplicaciones, y tutoriales de Ubuntu",
+  },
+  { name: "mongodb", url: "/docs/mongodb", description: "Configuraciones, resúmenes, y tips de MongoDB" },
+  { name: "javascript", url: "/docs/javascript", description: "Artículos y trucos interesantes de JavaScript" },
+  { name: "rust", url: "/docs/rust", description: "Aprende Rust, el lenguaje de programación de moda" },
+  { name: "react", url: "/docs/react", description: "Articulos sobre la librería Frontend más popular" },
 ];
 
 export const CategoriesHome = () => {
@@ -38,7 +51,7 @@ export const CategoriesHome = () => {
           </div>
 
           <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
-            {categories.map(({ name, url }, index) => (
+            {categories.map(({ name, url, description }, index) => (
               <Link
                 href={url}
                 key={`${name}-${index}`}
@@ -52,7 +65,7 @@ export const CategoriesHome = () => {
                   {name.charAt(0).toUpperCase() + name.slice(1)}
                 </h4>
                 <p className="text-gray-600 dark:text-gray-400 text-center line-clamp-2">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  {description}
                 </p>
               </Link>
             ))}
