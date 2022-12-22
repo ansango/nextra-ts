@@ -20,7 +20,7 @@ export const CategoriesHome = () => {
   return (
     <section className="relative mb-24">
       <div
-        className="absolute inset-0 top-1/4 lg:top-1/3 md:mt-24 lg:mt-0 nx-bg-gray-200 dark:bg-neutral-900 pointer-events-none"
+        className="absolute inset-0 top-[20%] lg:top-1/3 md:mt-24 lg:mt-0 nx-bg-gray-200 dark:bg-neutral-900 pointer-events-none"
         aria-hidden="true"
       ></div>
       <div className="absolute left-0 right-0 bottom-0 m-auto w-px p-px h-20 bg-gray-200 transform translate-y-1/2"></div>
@@ -42,7 +42,7 @@ export const CategoriesHome = () => {
               <Link
                 href={url}
                 key={`${name}-${index}`}
-                className="relative flex flex-col items-center p-6 bg-white dark:nx-bg-dark rounded shadow-xl h-48"
+                className="relative flex flex-col items-center p-6 bg-white dark:bg-[#0e0e0e] rounded shadow-xl h-48"
               >
                 <span className="bg-gradient-to-r from-[#7670c9] to-[#de6d9c] rounded-full p-3 mb-2">
                   <Icon name={name} className="w-6 text-white" />
