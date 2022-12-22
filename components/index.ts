@@ -7,3 +7,4 @@ export * from "./PinnedArticlesCategory";
 export * from "./Categories";
 export * from "./Hero";
 export * from "./HeroArticle";
+export * from "./HeroHome"
