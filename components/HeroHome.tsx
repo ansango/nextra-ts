@@ -67,6 +67,7 @@ export const HeroHome = () => {
             src={HeroImage}
             alt="Hero"
             className="md:aspect-12-6 object-cover w-full h-full max-w-5xl"
+            loading="eager"
           />
           <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 absolute right-14 sm:right-20 md:right-24 transform top-16 animate-float">
             <div className="relative w-full h-full flex flex-col items-center justify-center">
