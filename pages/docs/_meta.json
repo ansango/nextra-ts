@@ -5,7 +5,8 @@
       "breadcrumb": false,
       "sidebar": true,
       "toc": false,
-      "pagination": false
+      "pagination": false,
+      "layout": "full"
     }
   },
   "-- Recursos --": {
