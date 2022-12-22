@@ -1,42 +1,39 @@
-import bookmark from "./bookmark";
-import js from "./js";
-import markdown from "./markdown";
-import mongodb from "./mongodb";
-import pinned from "./pinned";
-import react from "./react";
-import rust from "./rust";
-import tool from "./tool";
-import ubuntu from "./ubuntu";
+import Bookmark from "./bookmark";
+import Js from "./js";
+import Markdown from "./markdown";
+import Mongodb from "./mongodb";
+import Pinned from "./pinned";
+import ReactIcon from "./react";
+import Rust from "./rust";
+import Tool from "./tool";
+import Ubuntu from "./ubuntu";
 
 export type IconProps = {
   name?: Category;
+  className?: string;
 };
 
-const renderIcon = (name: Category) => {
+export const Icon = ({ name, ...props }: IconProps) => {
   switch (name) {
     case "markdown":
-      return markdown;
+      return <Markdown {...props} />;
     case "react":
-      return react;
-    case "rust":
-      return rust;
+      return <ReactIcon {...props} />;
     case "bookmarks":
-      return bookmark;
-    case "herramientas":
-      return tool;
-    case "mongodb":
-      return mongodb;
+      return <Bookmark {...props} />;
     case "javascript":
-      return js;
+      return <Js {...props} />;
+    case "mongodb":
+      return <Mongodb {...props} />;
+    case "rust":
+      return <Rust {...props} />;
     case "ubuntu":
-      return ubuntu;
+      return <Ubuntu {...props} />;
+    case "herramientas":
+      return <Tool {...props} />;
     case "pinned":
-      return pinned;
+      return <Pinned {...props} />;
     default:
-      return markdown;
+      return <Markdown {...props} />;
   }
 };
-
-export const Icon = ({ name = "markdown" }: IconProps) => (
-  <>{renderIcon(name)}</>
-);
