@@ -4,7 +4,7 @@ import HeroImage from "public/galaxy.jpg";
 export const HeroHome = () => {
   return (
     <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 group">
-      {/* Illustration behind hero content */}
+      
       <div
         className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none z-10"
         aria-hidden="true"
@@ -36,7 +36,6 @@ export const HeroHome = () => {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Hero content */}
         <div className="">
           {/* Section header */}
           <div className="text-center pb-12 md:pb-16">
@@ -47,11 +46,7 @@ export const HeroHome = () => {
               </span>
             </h1>
             <div className="max-w-3xl mx-auto">
-              <p
-                className="text-xl text-gray-600 dark:text-gray-400 mb-8"
-                data-aos="zoom-y-out"
-                data-aos-delay="150"
-              >
+              <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
                 Aquí encontrarás artículos y documentación sobre desarrollo web,
                 lenguajes de programación, frameworks, tecnologías, etc.
               </p>

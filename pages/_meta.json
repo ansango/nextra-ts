@@ -11,6 +11,5 @@
   "docs": {
     "title": "Docs",
     "type": "page"
-  },
-  "sobremi": { "title": "Sobre mí", "type": "page" }
+  }
 }

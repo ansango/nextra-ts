@@ -8,3 +8,4 @@ export * from "./PinnedArticlesCategory";
 export * from "./CategoriesHome";
 export * from "./HeroArticle";
 export * from "./HeroHome";
+export * from "./Chip";

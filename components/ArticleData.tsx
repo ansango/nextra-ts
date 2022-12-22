@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { formatDate, useMarkdownData } from "lib";
+import { Chip } from "./Chip";
 
 export const ArticleData: FC = () => {
   const data = useMarkdownData();
@@ -18,12 +19,7 @@ export const ArticleData: FC = () => {
           </time>
           <div className="flex flex-wrap">
             {tags.map((tag, i) => (
-              <span
-                className="mr-2 mb-2 rounded-full px-2 py-1.5 text-xs nx-bg-primary-50 font-medium nx-text-primary-600 dark:nx-bg-primary-500/10 contrast-more:nx-border-primary-500 contrast-more:dark:nx-border-primary-500"
-                key={`${tag}-${i}`}
-              >
-                {tag}
-              </span>
+              <Chip key={`${tag}-${i}`}>{tag}</Chip>
             ))}
           </div>
         </div>
