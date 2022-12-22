@@ -68,6 +68,24 @@ export const useLastFiles = (): Record<Category, FrontMatterArticle[]> => {
   return filesByCategory;
 };
 
+export const useAllLastFiles = (limit = 6): FrontMatterArticle[] => {
+  const { bookmarks, herramientas, javascript, mongodb, react, rust, ubuntu } =
+    useLastFiles();
+  const allFiles = [
+    ...bookmarks,
+    ...herramientas,
+    ...javascript,
+    ...mongodb,
+    ...react,
+    ...rust,
+    ...ubuntu,
+  ].sort(
+    (a, b) =>
+      new Date(b?.publishedAt).getTime() - new Date(a?.publishedAt).getTime()
+  ).slice(0, limit);
+  return allFiles;
+};
+
 export const usePinnedFiles = (): FrontMatterArticle[] => {
   const folders = getPagesUnderRoute("/docs").filter(
     (folder) => folder.kind === "Folder"
@@ -141,4 +159,4 @@ export const useArticlesByCategory = (
     .filter((file) => file?.category === category) as FrontMatterArticle[];
 
   return filesByCategory;
-}
+};

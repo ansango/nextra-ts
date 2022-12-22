@@ -23,10 +23,26 @@ const categories: Categories = [
     url: "/docs/ubuntu",
     description: "Configuraciones, aplicaciones, y tutoriales de Ubuntu",
   },
-  { name: "mongodb", url: "/docs/mongodb", description: "Configuraciones, resúmenes, y tips de MongoDB" },
-  { name: "javascript", url: "/docs/javascript", description: "Artículos y trucos interesantes de JavaScript" },
-  { name: "rust", url: "/docs/rust", description: "Aprende Rust, el lenguaje de programación de moda" },
-  { name: "react", url: "/docs/react", description: "Articulos sobre la librería Frontend más popular" },
+  {
+    name: "mongodb",
+    url: "/docs/mongodb",
+    description: "Configuraciones, resúmenes, y tips de MongoDB",
+  },
+  {
+    name: "javascript",
+    url: "/docs/javascript",
+    description: "Artículos y trucos interesantes de JavaScript",
+  },
+  {
+    name: "rust",
+    url: "/docs/rust",
+    description: "Aprende Rust, el lenguaje de programación de moda",
+  },
+  {
+    name: "react",
+    url: "/docs/react",
+    description: "Articulos sobre la librería Frontend más popular",
+  },
 ];
 
 export const CategoriesHome = () => {
@@ -36,7 +52,6 @@ export const CategoriesHome = () => {
         className="absolute inset-0 top-[20%] lg:top-1/3 md:mt-24 lg:mt-0 nx-bg-gray-200 dark:bg-neutral-900 pointer-events-none"
         aria-hidden="true"
       ></div>
-      <div className="absolute left-0 right-0 bottom-0 m-auto w-px p-px h-20 bg-gray-200 transform translate-y-1/2"></div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
