@@ -8,7 +8,7 @@ const BackGroundBottom: FC = () => {
   return (
     <div className="absolute inset-x-0 top-[calc(100%-90rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-80rem)]">
       <svg
-        className="relative left-[calc(50%+20rem)] h-[61.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+20rem)] sm:h-[42.375rem]"
+        className="relative left-[calc(50%+20rem)] h-[61.1875rem] max-w-none -translate-x-1/2 sm:left-[calc(50%+10rem)] sm:h-[22.375rem]"
         viewBox="0 0 1155 678"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +39,9 @@ const BackGroundBottom: FC = () => {
 const BackGroundHero: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div className="isolate bg-transparent">
-      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]">
+      <div className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[40rem]">
         <svg
-          className="relative left-[calc(50%-9rem)] -z-10 h-[25.1875rem] max-w-none -translate-x-1/2 bottom-52 rotate-[40deg] sm:left-[calc(50%-10rem)] sm:h-[57.375rem]"
+          className="relative left-[calc(50%-9rem)] -z-10 h-[32.1875rem] max-w-none -translate-x-1/2 bottom-52 rotate-[40deg] sm:left-[calc(50%-10rem)] sm:h-[27.375rem]"
           viewBox="0 0 1155 678"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -78,12 +78,10 @@ const HeroArticle: FC<{ title: string; description: string }> = ({
 }) => {
   return (
     <BackGroundHero>
-      <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+      <div className="pt-20 pb-32 sm:pt-48 sm:pb-40 max-w-3xl">
         <div>
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-4">
-              {title}
-            </h2>
+            <h1>{title}</h1>
             <p className="text-xl text-gray-600 dark:text-gray-400">
               {description}
             </p>
@@ -98,7 +96,7 @@ export const LastArticlesGrid = () => {
   const pinned = usePinnedFiles().slice(0, 6);
   const articles = useAllLastFiles(12).filter((file) => !pinned.includes(file));
   return (
-    <main className="relative flex flex-col xl:flex-row-reverse justify-between z-10 max-w-6xl mx-auto px-4 sm:px-6">
+    <main className="relative flex flex-col xl:flex-row-reverse justify-between z-10 max-w-6xl mx-auto">
       <aside className="relative shrink-0 mt-12 xl:mt-0 xl:ml-20">
         <div className="mb-8">
           <h3 className="text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight mb-4">
@@ -157,7 +155,7 @@ export const LastArticlesGrid = () => {
 
 export const LastArticles = () => {
   return (
-    <section className="relative pt-32 pb-12 md:pt-40 md:pb-20">
+    <section className="relative px-4 sm:px-6 pb-32 sm:pb-40">
       <HeroArticle
         title="Aquí tines lo que buscas"
         description="Las últimas publicaciones sobre marcadores, herramientas, configuraciones de Linux y mucho desarrollo web."
