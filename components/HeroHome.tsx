@@ -46,7 +46,7 @@ export const HeroHome = () => {
               </span>
             </h1>
             <div className="max-w-3xl mx-auto">
-              <p className="text-xl text-gray-600 dark:text-gray-400 mb-8">
+              <p className="!text-xl text-gray-600 dark:text-gray-400 mb-8">
                 Aquí encontrarás artículos y documentación sobre desarrollo web,
                 lenguajes de programación, frameworks, tecnologías, etc.
               </p>

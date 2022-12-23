@@ -17,15 +17,18 @@ h1 {
   @apply !text-4xl sm:!text-5xl !font-extrabold !leading-tighter !tracking-tighter !mb-4 !mt-12;
 }
 
+h2 {
+  @apply !font-bold !border-0;
+}
 
+h3 {
+  @apply !font-semibold;
+}
+
+p {
+  @apply !text-gray-600 dark:!text-gray-400 group-hover:!text-gray-800 dark:group-hover:!text-gray-200;
+}
 
 .nextra-toc {
-  z-index: 999;
+  z-index: 10;
 }
-/* p,
-ul,
-li,
-ol,
-span {
-  @apply text-gray-600 dark:text-gray-400;
-} */

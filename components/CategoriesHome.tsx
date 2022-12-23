@@ -111,10 +111,10 @@ export const CategoriesHome = () => {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 z-10 mt-24">
         <div className="py-12 md:py-20">
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight mb-4">
+            <h2 className="text-3xl sm:text-4xl !font-extrabold leading-tight tracking-tight mb-4">
               Encuentra lo que buscas
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-400">
+            <p className="!text-xl text-gray-600 dark:text-gray-400">
               Accede directamente a los temas que te interesan a través de las
               categorías.
             </p>

@@ -12,8 +12,8 @@ export const ArticleData: FC = () => {
         <h1>{title}</h1>
         <div className="space-y-5">
           <time
-            className="nx-mt-12 nx-block nx-text-xs nx-text-gray-500 dark:nx-text-gray-400"
-            dateTime={publishedAt}
+            dateTime={formatDate(publishedAt)}
+            className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200"
           >
             {formatDate(publishedAt)}
           </time>
@@ -23,7 +23,7 @@ export const ArticleData: FC = () => {
             ))}
           </div>
         </div>
-        <p className="nx-mt-6 nx-leading-7 first:nx-mt-0">{summary}</p>
+        <p className="text-gray-600 dark:text-gray-400 py-10">{summary}</p>
       </>
     );
   }

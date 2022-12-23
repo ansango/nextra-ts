@@ -79,7 +79,7 @@ export const HeroArticle: FC<{ title: string; description: string }> = ({
           <div>
             <div>
               <h1>{title}</h1>
-              <p className="text-xl text-gray-600 dark:text-gray-400">
+              <p className="text-lg text-gray-600 dark:text-gray-400">
                 {description}
               </p>
             </div>
