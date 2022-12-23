@@ -1,4 +1,4 @@
-import { useAllLastFiles, usePinnedFiles } from "lib";
+import { formatDate, useAllLastFiles, usePinnedFiles } from "lib";
 import Link from "next/link";
 import { FC, ReactNode } from "react";
 import { Icon } from "./icons/icon";
@@ -99,36 +99,38 @@ export const LastArticlesGrid = () => {
     <main className="relative flex flex-col xl:flex-row-reverse justify-between z-10 max-w-6xl mx-auto">
       <aside className="relative shrink-0 mt-12 xl:mt-0 xl:ml-20">
         <div className="mb-8">
-          <h3 className="text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight mb-4">
             Artículos destacados
-          </h3>
+          </h2>
           <ul className="-my-0.5">
-            {pinned.map(({ title, category, slug, summary }, i) => (
-              <Link href={`/docs/${slug}/`} key={i} className="group">
-                <li className="flex border-b border-gray-200 dark:border-gray-800 py-4 xl:max-w-xs">
-                  <Icon
-                    name="pinned"
-                    className="w-8 h-8 xl:w-5 xl:h-5 mt-1 mr-3 text-gray-600 dark:text-gray-400 shrink-0 group-hover:text-gray-800 dark:group-hover:text-gray-200"
-                  />
-                  <article>
-                    <h4 className="mb-2 text-2xl xl:text-lg font-bold leading-snug tracking-tight">
-                      {title}
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-400 text-lg xl:text-base line-clamp-3 xl:line-clamp-2 group-hover:text-gray-800 dark:group-hover:text-gray-200">
-                      {summary}
-                    </p>
-                  </article>
-                </li>
-              </Link>
-            ))}
+            {pinned.map(
+              ({ title, category, slug, summary, publishedAt }, i) => (
+                <Link href={`/docs/${slug}/`} key={i} className="group">
+                  <li className="flex border-b border-gray-200 dark:border-gray-800 py-4 xl:max-w-xs">
+                    <Icon
+                      name="pinned"
+                      className="w-8 h-8 xl:w-5 xl:h-5 mt-1 mr-3 text-gray-600 dark:text-gray-400 shrink-0 group-hover:text-gray-800 dark:group-hover:text-gray-200"
+                    />
+                    <article>
+                      <h3 className="mb-2 text-xl xl:text-base font-bold leading-snug tracking-tight">
+                        {title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-base line-clamp-3 xl:line-clamp-2 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                        {summary}
+                      </p>
+                    </article>
+                  </li>
+                </Link>
+              )
+            )}
           </ul>
         </div>
       </aside>
       <section className="space-y-5 flex-grow">
-        <h3 className="text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight mb-4">
+        <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight mb-4">
           Artículos recientes
-        </h3>
-        {articles.map(({ title, slug, summary, category }, i) => (
+        </h2>
+        {articles.map(({ title, slug, summary, category, publishedAt }, i) => (
           <Link key={i} href={`/docs/${slug}/`} className="group">
             <article className="flex py-4 border-b border-gray-200 dark:border-gray-800">
               <Icon
@@ -137,13 +139,19 @@ export const LastArticlesGrid = () => {
               />
               <div>
                 <header>
-                  <h4 className="mb-2 text-2xl font-bold leading-snug tracking-tight">
+                  <h3 className="mb-2 text-xl font-bold leading-snug tracking-tight">
                     {title}
-                  </h4>
+                  </h3>
                 </header>
-                <p className="text-gray-600 dark:text-gray-400 text-lg mb-4 line-clamp-3 group-hover:text-gray-800 dark:group-hover:text-gray-200">
+                <p className="text-gray-600 dark:text-gray-400 text-base mb-4 line-clamp-3 group-hover:text-gray-800 dark:group-hover:text-gray-200">
                   {summary}
                 </p>
+                <time
+                  dateTime={formatDate(publishedAt)}
+                  className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200"
+                >
+                  {formatDate(publishedAt)}
+                </time>
               </div>
             </article>
           </Link>

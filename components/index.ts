@@ -2,7 +2,6 @@ export * from "./ArticleData";
 export * from "./ArticlesCategory";
 export * from "./card";
 export * from "./LastArticles";
-export * from "./LastArticlesHome";
 export * from "./PinnedArticles";
 export * from "./PinnedArticlesCategory";
 export * from "./CategoriesHome";
