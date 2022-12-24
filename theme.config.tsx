@@ -25,7 +25,7 @@ const config: DocsThemeConfig = {
       description: "ansango",
     };
   },
-  logo: <span className="font-semibold">ansango</span>,
+  logo: <span className="font-semibold">ansango 💻</span>,
   project: {
     link: "https://github.com/ansango",
   },
@@ -42,7 +42,7 @@ const config: DocsThemeConfig = {
     defaultMenuCollapseLevel: 0,
   },
   footer: {
-    text: "ansango",
+    text: `ansango 💻 - © Todos los derechos reservados - ${new Date().getFullYear()} `,
   },
   toc: {
     title: "En esta página",
@@ -59,6 +59,10 @@ const config: DocsThemeConfig = {
     dark: 290,
     light: 268,
   },
+  banner: {
+    text: "ansango se está migrando 🚀",
+  },
+  direction: "ltr",
 };
 
 export default config;
