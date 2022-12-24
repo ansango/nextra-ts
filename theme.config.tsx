@@ -4,6 +4,7 @@ import { useConfig, type DocsThemeConfig } from "nextra-theme-docs";
 
 const Time = ({ timestamp }: { timestamp: Date }) => {
   const { route } = useRouter();
+
   if (route === "/") return null;
   return (
     <time dateTime={formatDate(timestamp)}>

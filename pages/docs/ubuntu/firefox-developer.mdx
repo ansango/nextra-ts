@@ -1,6 +1,6 @@
 ---
 title: Instalar Firefox Developer Edition
-summary: "¿Quieres instalar y utilizar Firefox Developer Edition en tu Ubuntu y no sabes cómo hacerlo?\nSi tu respuesta es sí, entonces este artículo es para ti. Estoy seguro de que has visto algunas documentaciones por ahí pero en esta vamos a añadir Firefox Developer Edition a nuestro lanzador Unity. De nada \U0001F609"
+summary: Cómo instalar Firefox Developer Edition en Ubuntu sin morir en el intento.
 category: ubuntu
 tags:
   - ubuntu
@@ -14,60 +14,70 @@ import { ArticleData } from "components";
 
 <ArticleData />
 
-- Descarga el archivo `.tar` de [Mozilla](https://www.mozilla.org/en-US/firefox/developer/). Ten en cuenta el nombre del archivo `.tar` porque cambia con cada actualización.
-- Abre tu terminal y accede a `Downloads`.
-- Copia el archivo `.tar` en la carpeta `/opt`:
+¿Quieres instalar y utilizar Firefox Developer Edition en tu Ubuntu y no sabes cómo hacerlo?\nSi tu respuesta es sí, entonces este artículo es para ti. Estoy seguro de que has visto algunas documentaciones por ahí pero en esta vamos a añadir Firefox Developer Edition a nuestro lanzador Unity. De nada 😃
 
-```powershell
+## Descarga
+
+Descarga el archivo `.tar` de [Mozilla](https://www.mozilla.org/en-US/firefox/developer/). Ten en cuenta el nombre del archivo `.tar` porque cambia con cada actualización.
+
+Abre tu terminal y accede a `Downloads`. Copia el archivo `.tar` en la carpeta `/opt`:
+
+```powershell copy
 sudo cp -rp firefox-67.0b10.tar.bz2 /opt
+# cambiar firefox-67.0b10.tar.bz2 por el nombre del archivo que hayas descargado
 ```
 
-- Borra el archivo `.tar`:
+Borra el archivo `.tar`:
 
-```powershell
+```powershell copy
 sudo rm -rf firefox-67.0b10.tar.bz2
 ```
 
-- Accede a la carpeta `/opt`:
+Accede a la carpeta `/opt`:
 
-```powershell
+```powershell copy
 cd /opt
 ```
 
-- Descomprime el archivo `.tar`:
+Descomprime el archivo `.tar`:
 
 ```powershell
 sudo tar xjf firefox-67.0b10.tar.bz2
 ```
 
-- Elimina el `.tar`:
+Elimina el `.tar`:
 
-```powershell
+```powershell copy
 sudo rm -rf firefox-67.0b10.tar.bz2
 ```
 
-- Vamos a darle permisos a la carpeta de Firefox:
+## Permisos
 
-```powershell
+Vamos a darle permisos a la carpeta de Firefox:
+
+```powershell copy
 sudo chown -R $USER /opt/firefox
 ```
 
-- Abrimos el archivo de configuración de `bash`:
+Abrimos el archivo de configuración de `bash`:
 
-```powershell
+```powershell copy
 nano ~/.bashrc
 ```
 
-- Copia y pega al final del archivo la siguiente línea:
+Copia y pega al final del archivo la siguiente línea:
 
-```powershell
+```powershell copy
 export PATH=/opt/firefox/firefox:$PATH
 ```
 
-- Cierra el archivo con `ctrl+x` y guarda los cambios.
-- El último es ejecutar un comando para crear un acceso directo de Unity. Después de crear este archivo, podremos buscar "Firefox Developer Edition" nuestro Dashboard:
+Cierra el archivo con `ctrl+x` y guarda los cambios.
 
-```powershell
+## Acceso directo
+
+Lo último es ejecutar un comando para crear un acceso directo de Unity. Después de crear este archivo, podremos buscar "Firefox Developer Edition" nuestro Dashboard:
+
+```powershell copy
 cat > ~/.local/share/applications/firefoxDeveloperEdition.desktop <<EOL
 [Desktop Entry]
 Encoding=UTF-8

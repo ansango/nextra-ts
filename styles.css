@@ -29,6 +29,10 @@ p {
   @apply !text-gray-600 dark:!text-gray-400 group-hover:!text-gray-800 dark:group-hover:!text-gray-200;
 }
 
+li {
+  @apply !text-gray-600 dark:!text-gray-400;
+}
+
 .nextra-toc {
   z-index: 10;
 }
