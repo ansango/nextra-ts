@@ -7,6 +7,14 @@
       "pagination": true
     }
   },
+  "aplicaciones": {
+    "title": "Aplicaciones",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
   "firefox-developer": {
     "title": "Instalar Firefox Developer Edition",
     "theme": {
@@ -25,6 +33,14 @@
   },
   "touchpad": {
     "title": "Restaurar Touchpad",
+    "theme": {
+      "breadcrumb": true,
+      "toc": true,
+      "pagination": true
+    }
+  },
+  "nvidia": {
+    "title": "Restaurar drivers Nvidia",
     "theme": {
       "breadcrumb": true,
       "toc": true,

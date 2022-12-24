@@ -2,7 +2,8 @@ import { useRouter } from "next/router";
 import type { Folder, MdxFile, Page } from "nextra";
 
 import { getPagesUnderRoute } from "nextra/context";
-import { useConfig, useTheme } from "nextra-theme-docs";
+import { useEffect, useState } from "react";
+
 export const formatDate = (
   date: Date | string = new Date(),
   locale: Intl.LocalesArgument = "es-ES",
@@ -79,10 +80,12 @@ export const useAllLastFiles = (limit = 6): FrontMatterArticle[] => {
     ...react,
     ...rust,
     ...ubuntu,
-  ].sort(
-    (a, b) =>
-      new Date(b?.publishedAt).getTime() - new Date(a?.publishedAt).getTime()
-  ).slice(0, limit);
+  ]
+    .sort(
+      (a, b) =>
+        new Date(b?.publishedAt).getTime() - new Date(a?.publishedAt).getTime()
+    )
+    .slice(0, limit);
   return allFiles;
 };
 
@@ -122,6 +125,14 @@ export const usePinnedFilesByCategory = (
   const articles = folders.flatMap((folder) => folder.children) as MdxFile[];
   const allFiles = [...articles, ...files];
 
+const pinned= allFiles
+  .map((file) => file.frontMatter)
+  .sort(
+    (a, b) =>
+      new Date(b?.publishedAt).getTime() - new Date(a?.publishedAt).getTime()
+);
+  console.log(pinned);
+
   const pinnedFiles = allFiles
     .map((file) => file.frontMatter)
     .sort(
@@ -159,4 +170,10 @@ export const useArticlesByCategory = (
     .filter((file) => file?.category === category) as FrontMatterArticle[];
 
   return filesByCategory;
+};
+
+export const useMounted = (): boolean => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  return mounted;
 };

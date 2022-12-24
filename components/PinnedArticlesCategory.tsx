@@ -1,7 +1,6 @@
 import { formatDate, usePinnedFilesByCategory } from "lib";
 import Link from "next/link";
 import { type FC } from "react";
-import { Card, Cards } from "./card";
 import { Icon } from "./icons/icon";
 import React from "./icons/react";
 
@@ -9,6 +8,7 @@ export const PinnedArticlesCategory: FC<{ category: Category }> = ({
   category,
 }) => {
   const data = usePinnedFilesByCategory(category);
+  console.log(data);
   if (!data || data.length === 0) {
     return null;
   }

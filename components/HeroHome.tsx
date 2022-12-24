@@ -4,7 +4,6 @@ import HeroImage from "public/galaxy.jpg";
 export const HeroHome = () => {
   return (
     <section className="relative pt-32 pb-12 md:pt-40 md:pb-20 group">
-      
       <div
         className="absolute left-1/2 transform -translate-x-1/2 bottom-0 pointer-events-none z-10"
         aria-hidden="true"

@@ -1,17 +1,13 @@
 ---
-title: Configurar Ubuntu 20.04 / 21.04
-summary: Instalación de utilidades para desarrollo en Ubuntu 20.04 y 21.04
+title: Configuración
+summary: Configuraciones que suelo hacer en Ubuntu nada más instalarlo
 category: ubuntu
 tags:
-  - linux
   - ubuntu
   - terminal
   - bash
-  - touchpad
   - mongodb
   - git
-  - vscode
-  - firefox
 publishedAt: "2021-07-17T22:00:00.000Z"
 slug: ubuntu/configuracion
 pinned: true
@@ -25,9 +21,9 @@ Normalmente suelo formatear mi ordenador al menos dos veces al año, es una prá
 
 Lo ideal sería componer todo mediante un script en `bash` que automatizase todos estos procesos de instalación. Te dejo a ti ese trabajo 😄
 
-> He revisado todos los puntos que contiene esta entrada y es totalmente aplicable a la versión 21.04
+> He revisado todos los puntos que contiene esta entrada y es totalmente aplicable a la versión 22.04
 
-## Actualización de repositiorios
+## Actualización de repositorios
 
 ```powershell copy
 sudo apt update
@@ -45,27 +41,47 @@ sudo apt -y install git
 
 ## Soporte para exFAT
 
+Si estamos en una versión inferior a Ubuntu 22.04 necesitaremos instalar el soporte para exFAT
+
 ```powershell copy
 sudo apt -y install exfat-fuse exfat-utils
 ```
 
-## Instalación de Fonts Powerline y Firacode
+Si estamos en Ubuntu 22.04 o superior `exfat-utils` ha sido sustituido por `exfat-propgs`
 
-```powershell
+```powershell copy
+sudo apt install exfatprogs
+```
+
+## Instalación de fuentes
+
+### Powerline
+
+Fonts Powerline es una colección de fuentes que nos permiten utilizar símbolos especiales en la terminal.
+
+```powershell copy
 sudo apt -y install fonts-powerline
 ```
 
-```powershell
+### FiraCode
+
+FiraCode es una fuente de código que nos permite utilizar ligaduras en la terminal.
+
+```powershell copy
 sudo apt -y install fonts-firacode
 ```
 
 ## Instalación y configuración de `zsh`
 
-Instalamos `curl`
+### `curl`
 
-```powershell
+Si no lo tenemos instalado, lo instalamos
+
+```powershell copy
 sudo apt -y install curl
 ```
+
+### `zsh`
 
 Después instalamos `zsh`
 
@@ -108,38 +124,66 @@ chsh -s $(which zsh)
 
 Necesitaremos reiniciar la sesión para que `zsh` sea nuestra terminal predeterminada.
 
-## Instalación y configuración de Node Version Manager
+### `powerlevel10k`
 
-```powershell
+`powerlevel10k` es un tema para `zsh` que nos permite personalizar la terminal. Ejecutamos el siguiente comando para instalarlo:
+
+```powershell copy
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+
+Abrimos el archivo de configuración de `zsh` de nuevo:
+
+```powershell copy
+nano ~/.zshrc
+```
+
+Buscamos la variable `ZSH_THEME` y actualizamos el valor a `powerlevel10k/powerlevel10k`:
+
+```powershell copy
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```
+
+Abre un nuevo terminal, y deberías ver que el tema. Si el asistente de configuración p10k no se inicia automáticamente, puedes ejecutarlo con:
+
+```powershell copy
+p10k configure
+```
+
+## Node Version Manager
+
+NVM es un gestor de versiones de Node.js, nos permite instalar y cambiar entre diferentes versiones de Node.js.
+
+```powershell copy
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash
 ```
 
 Abrimos el archivo configuración de `zsh` de nuevo:
 
-```powershell
+```powershell copy
 nano ~/.zshrc
 ```
 
 Copiamos y pegamos al final del archivo el siguiente código:
 
-```powershell
+```powershell copy
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 
 Necesitaremos reiniciar la sesión para que `nvm` funcione
 
-### Como instalar ¿Node?
+### Instalar Node.js
 
 Podemos obtener el listado de todas las versiones con:
 
-```powershell
+```powershell copy
 nvm ls-remote
 ```
 
 Para instalar `Node.js` y `npm` simplemente ejecutamos:
 
-```powershell
+```powershell copy
 nvm install --lts # Para instalar la última versión de larga duración
 ```
 
@@ -149,153 +193,42 @@ nvm install --lts # Para instalar la última versión de larga duración
 
 ## Dashboard
 
-Hace tiempo utilizaba OSX y me encantaba la interfaz gráfica, básicamente por el Dock y Mission Control. Pero puedes configurar tu distribución de Ubuntu para que tenga esas funcionalidades, siguiendo estos pasos:
+Hace tiempo utilizaba OSX y me encantaba la interfaz gráfica, básicamente por el Dock y Mission Control. Pero puedes configurar tu distribución de Ubuntu para que tenga esas funcionalidades.
 
-### Instalación de Dconf Editor para el Dock
+### Dconf Editor
 
-```powershell
+Dconf Editor es una herramienta que nos permite editar la configuración de Gnome, para ello ejecutamos:
+
+```powershell copy
 sudo apt -y install dconf-editor
 ```
 
-Entramos en Dconf Editor y accedemos a la siguiente ruta para customizar a nuestro gusto el Dock en Ubuntu:
+Podremos configurar a mano el Dock por ejemplo. Entramos en Dconf Editor y accedemos a la siguiente ruta para customizar a nuestro gusto el Dock en Ubuntu:
 
-```powershell
+```powershell copy
 org/gnome/shell/extensions/dash-to-dock
 ```
 
-### Instalación de Gnome Tweaks y configuración para "Mission Control"
+### Gnome Tweaks
 
-```powershell
+Gnome Tweaks es una herramienta que nos permite personalizar la interfaz gráfica de Ubuntu, para ello ejecutamos:
+
+```powershell copy
 sudo apt -y install gnome-tweaks
 ```
 
-```powershell
-sudo apt -y install wmctrl
+### Custom Hot Corners Extended
+
+Custom Hot Corners Extended es una extensión que nos permite configurar las acciones que se lanzan al poner el puntero en cada esquina de la pantalla.
+
+```powershell copy
+wget https://github.com/G-dH/custom-hot-corners-extended/releases/latest/download/custom-hot-corners-extended@G-dH.github.com.zip
 ```
 
-Necesitamos instalar el plugin de `Custom Hot Corners`, para ello podemos acceder [aquí](https://extensions.gnome.org/extension/1362/custom-hot-corners/) en `Firefox` y activarlo en el botón de switch, o si accedemos desde `Chrome` deberemos instalar un [complemento](https://chrome.google.com/webstore/detail/gnome-shell-integration/gphhapmejobijbbhgpjhcjognlahblep) para el navegador.
-
-Accedemos a Gnome Tweaks, y en `extensions`, activamos `Custom hot corners`. En el botón de configuración podremos seleccionar las acciones que queremos que se lancen al poner el puntero en cada esquina de nuestra pantalla.
-
-### Instalación de GDM Background
-
-```powershell
-sudo apt install git make gcc libgtk-3-dev libpolkit-gobject-1-dev
-git clone https://github.com/thiggy01/gdm-background.git
-cd gdm-background/
-make
-sudo make install
+```powershell copy
+gnome-extensions install --force custom-hot-corners-extended@G-dH.github.com.zip
 ```
 
 ## Aplicaciones que uso
 
-### Google Chrome
-
-```powershell
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-```
-
-```powershell
-sudo dpkg -i google-chrome-stable_current_amd64.deb
-```
-
-### Firefox Developer Edition
-
-> Para instalar Firefox Developer Edition puedes seguir esta [guía](/docs/ubuntu/firefox-developer)
-
-### Htop
-
-```powershell
-sudo apt -y install htop
-```
-
-### Byobu
-
-```powershell
-sudo apt -y install byobu
-```
-
-### Visual Studio Code
-
-```powershell
-sudo snap install code --classic
-```
-
-Lo ideal es utilizar el plugin `Settings Sync` para tener sincronizados todos nuestros plugins de Visual Studio Code, así solo tendremos que descargarlos.
-
-> Puedes ver la lista de los plugins que uso [aquí](/docs/herramientas/vscode-plugins)
-
-### Postman
-
-```powershell
-sudo snap install postman
-```
-
-### Robo 3T
-
-> Para instalar Robo 3T puedes seguir esta [guía](/docs/ubuntu/instalar-mongo)
-
-### VLC
-
-```powershell
-sudo snap install vlc
-```
-
-### Spotify
-
-```powershell
-sudo snap install spotify
-```
-
-### Balena Etcher
-
-Descarga la última versión de Balena Etcher [aquí](https://www.balena.io/etcher/).
-
-### Transmission
-
-```powershell
-sudo apt install transmission
-```
-
-### Ghostwriter
-
-Si quieres escribir markdown sin distracciones aquí tienes un editor genial que te ayudará a prescindir de editores
-
-```powershell
-sudo add-apt-repository ppa:wereturtle/ppa
-sudo apt update
-sudo apt install ghostwriter
-```
-
-## Resetear Touchpad en Ubuntu
-
-> Puedes encontrar algunas soluciones para resetear el touchpad en Ubuntu [aquí](/docs/ubuntu/touchpad).
-
-## Reconfigurar Drivers de Nvidia
-
-Si en algún momento has perdido la configuración por defecto de tus drivers privativos de Nvidia y Ubuntu no te permite seleccionarlos en "Additional Drivers", entonces puedes hacer lo siguiente:
-
-En primer lugar, busca qué controlador necesitas. ¿Cómo lo averiguas? Consultando según el modelo de tarjeta que tengas y seleccionando obviamente la opción de _Linux 64-bit_ en **Sistema Operativo** [aquí](https://www.nvidia.es/Download/index.aspx?lang=es). Es recomendable utilizar en **Tipo de descarga** la opción de _Rama de producción_, que suele ser la versión ya testeada y que da menos problemas.
-
-En mi caso tengo una GeForce GTX 1060, así que seleccionaría estas opciones:
-
-- Tipo de producto: GeForce
-- Serie del producto: GeForce 10 Series
-- Familia del producto: GeForce 1060
-- Sistema operativo: Linux 64-bit
-- Tipo de descarga: Rama de producción
-- Idioma: Español (España)
-
-A continuación le damos a buscar, y podremos descargarlo, pero si no te apetece ejecutar un .run, es más fácil quedarnos con el número de versión del driver. En mi caso la **470.63.01**
-
-Abrimos un terminal y ejecutamos:
-
-```powershell
-sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt update
-sudo apt install nvidia-driver-470
-```
-
-Después de la instalación reiniciamos `reboot`, y ya deberíamos tener aplicado el controlador de nuevo.
-
-Y hasta aquí toda la configuración base de mi Ubuntu ❤️. Se que son unas cuantas cositas, por ello lo he distribuido en otras entradas. Espero que te haya servido.
+> Puedes ver las aplicaciones que uso [aquí](/docs/ubuntu/aplicaciones)
