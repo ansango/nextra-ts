@@ -24,7 +24,7 @@
     }
   },
   "instalar-mongo": {
-    "title": "Instalar MongoDB",
+    "title": "Instalar MongoDB y Robo 3T",
     "theme": {
       "breadcrumb": true,
       "toc": true,

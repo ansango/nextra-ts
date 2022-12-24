@@ -1,5 +1,5 @@
 ---
-title: Instalar MongoDB
+title: Instalar MongoDB y Robo 3T
 summary: Cómo instalar MongoDB y Robo 3T en Ubuntu
 category: ubuntu
 tags:
@@ -14,12 +14,14 @@ import { ArticleData } from "components";
 
 <ArticleData />
 
-## Instalar MongoDB en Ubuntu 20.04
+## Instalar MongoDB en Ubuntu 22.04
 
-Para empezar, importa la clave GPG pública de la última versión estable de MongoDB ejecutando el siguiente comando. Si quieres utilizar una versión de MongoDB distinta de la 4.4, asegúrate de cambiar el 4.4 en la parte de la URL de este comando:
+### Importar clave GPG
 
-```powershell
-curl -fsSL https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+Para empezar, importa la clave GPG pública de la última versión estable de MongoDB ejecutando el siguiente comando:
+
+```powershell copy
+wget -qO - https://www.mongodb.org/static/pgp/server-6.0.asc |  gpg --dearmor | sudo tee /usr/share/keyrings/mongodb.gpg > /dev/null
 ```
 
 Este comando devolverá OK si la clave se ha añadido con éxito:
@@ -30,30 +32,14 @@ Este comando devolverá OK si la clave se ha añadido con éxito:
 OK
 ```
 
-Si quieres comprobar que la clave se ha añadido correctamente, puedes hacerlo con el siguiente comando:
-
-```powershell
-apt-key list
-```
-
-Esto devolverá la clave de MongoDB en algún lugar de la salida:
-
-```powershell
-Output
-/etc/apt/trusted.gpg
---------------------
-pub   rsa4096 2019-05-28 [SC] [expires: 2024-05-26]
-      2069 1EEC 3521 6C63 CAF6  6CE1 6564 08E3 90CF B1F5
-uid           [ unknown] MongoDB 4.4 Release Signing Key <packaging@mongodb.com>
-. . .
-```
+### Repositorio
 
 En este punto, APT todavía no sabe dónde encontrar el paquete mongodb-org que necesita para instalar la última versión de MongoDB.
 
 Ejecuta el siguiente comando, que creará un archivo en el directorio sources.list.d llamado mongodb-org-4.4.list:
 
-```powershell
-echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+```powershell copy
+echo "deb [ arch=amd64,arm64 signed-by=/usr/share/keyrings/mongodb.gpg ] https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list
 ```
 
 Esta única línea le dice a APT todo lo que necesita saber sobre cuál es la fuente y dónde encontrarla:
@@ -61,31 +47,33 @@ Esta única línea le dice a APT todo lo que necesita saber sobre cuál es la fu
 - `deb`: Esto significa que la entrada de la fuente hace referencia a una arquitectura normal de Debian.
 - `[ arch=amd64,arm64 ]`: Especifica para qué arquitecturas deben descargarse los datos de APT. En este caso, especifica las arquitecturas amd64 y arm64.
 - `https://repo.mongodb.org/apt/ubuntu`: Se trata de un URI que representa la ubicación donde se pueden encontrar los datos de APT. En este caso, el URI apunta a la dirección HTTPS donde se encuentra el repositorio oficial de MongoDB.
-- `focal/mongodb-org/4.4`: Los repositorios de Ubuntu pueden contener varias versiones diferentes. Esto especifica que sólo quieres la versión 4.4 del paquete mongodb-org disponible para la versión focal de Ubuntu ("Focal Fossa" es el nombre en clave de Ubuntu 20.04).
+- `jammy/mongodb-org/6.0`: Los repositorios de Ubuntu pueden contener varias versiones diferentes. Esto especifica que sólo quieres la versión 6.0 del paquete mongodb-org disponible para la versión jammy de Ubuntu (22.04).
 - `multiverse`: Esta parte apunta a APT a uno de los cuatro repositorios principales de Ubuntu. En este caso, apunta al repositorio multiverse.
 
 Después de ejecutar este comando, actualiza el índice de paquetes local de su servidor para que APT sepa dónde encontrar el paquete mongodb-org:
 
-```powershell
+```powershell copy
 sudo apt update
 ```
 
-A continuación podemos **instalar** MongoDB:
+### Instalación y arranque
 
-```powershell
+#### Instalación
+
+```powershell copy
 sudo apt install mongodb-org
 ```
 
-1. **Arrancar MongoDB**:
+#### Arranque
 
-```powershell
+```powershell copy
 sudo service mongod start
 
 ```
 
-1. **Verificar que MongoDB se ha iniciado**:
+#### Verificación
 
-```powershell
+```powershell copy
 sudo service mongod status
 ```
 
@@ -119,84 +107,89 @@ jul 07 23:14:17 ansango systemd[1]: mongod.service: Failed with result 'exit-cod
 
 Es probable que sea por falta de permisos en las carpetas internas. Para dar permisos podemos introducir en terminal lo siguiente:
 
-```powershell
+```powershell copy
 sudo chown -R mongodb:mongodb /var/lib/mongodb
 sudo chown mongodb:mongodb /tmp/mongodb-27017.sock
 ```
 
-1. **Parar MongoDB**:
+#### Parar MongoDB
 
-```powershell
+```powershell copy
 sudo service mongod stop
 ```
 
-1. **Reiniciar MongoDB**:
+#### Reiniciar
 
-```powershell
+```powershell copy
 sudo service mongod restart
 ```
 
-1. **Empezar a usar MongoDB**:
+#### Empezar a usar MongoDB
 
-```powershell
+```powershell copy
 mongo
 ```
 
-1. **Arrancar la terminal de MongoDB**:
+#### MongoShell
 
-```powershell
+```powershell copy
 mongo shell
 ```
 
-## Instalar Robo 3T en Ubuntu 20.04
+## Instalar Robo 3T en Ubuntu 22.04
+
+### Descarga
 
 Para instalar Robo 3T primero descargaremos la [versión oficial](https://robomongo.org/) para Linux. Tendremos entonces un archivo comprimido con este nombre: `robo3t-1.4.3-linux-x86_64-48f7dfd.tar.gz`
 
 Lo extraeremos con:
 
-```powershell
+```powershell copy
 tar -xvzf robo3t-1.4.3-linux-x86_64-48f7dfd.tar.gz
+# cambiar el nombre del archivo si es necesario
 ```
 
 Crea una nueva carpta para el paquete en usr/local/bin:
 
-```powershell
+```powershell copy
 sudo mkdir /usr/local/bin/robo3t
 ```
 
 Mueve el paquete extraido a usr/local/bin/robo3t
 
-```powershell
+```powershell copy
 sudo mv  robo3t-1.4.3-linux-x86_64-48f7dfd/* /usr/local/bin/robo3t
 ```
 
 Cámbiate al directorio:
 
-```powershell
+```powershell copy
 cd /usr/local/bin/robo3t/
 ```
 
+### Permisos y acceso directo
+
 Necesitamos dar permisos a Robo 3T:
 
-```powershell
+```powershell copy
 sudo chmod +x robo3t ./robo3t
 ```
 
 Ahora ya podemos ejecutar Robo 3T
 
-```powershell
+```powershell copy
 ./robo3t
 ```
 
 Para customizar el icono que veremos en el dashboard podemos [descargar](https://www.google.com/search?q=robo3t+icon+png&tbm=isch&source=iu&ictx=1&fir=Lh5FTCRLPKZyvM%253A%252CT0TupOjHzw6HKM%252C_&usg=AI4_-kRUiahKne4RFzDIMMulD1ZHJZNzAA&sa=X&ved=2ahUKEwiXtenUqbjgAhUBUhUIHfvEACQQ9QEwAHoECAUQBA) la imagen que queramos y guardarla en el `/bin`:
 
-```powershell
+```powershell copy
 mv icon.png /usr/local/bin/robo3t/bin
 ```
 
 Para crear un acceso desde el escritorio podemos crear un archivo en `sr/share/applications`:
 
-```powershell
+```powershell copy
 sudo nano /usr/share/applications/robo3t.desktop
 ```
 
@@ -221,7 +214,7 @@ Por último vamos a generar datos falsos en MongoDB. Necesitarás tener un archi
 
 En este caso partiremos del supuesto de estar desarrollando una aplicación en `Node` y que tenemos un `.js` con un array de objetos:
 
-```javascript
+```javascript copy
 // fake-data.js
 
 module.exports = [
@@ -257,7 +250,7 @@ module.exports = [
 
 Como pasar a `.json` este tipo de archivos puede ser un auténtico aburrimiento, vamos a crear un pequeño script que, mediante `Node` nos convierta este `.js` a `.json`:
 
-```javascript
+```javascript copy
 // convert-to-json.js
 
 const fs = require("fs");
@@ -272,7 +265,7 @@ console.log("Done!");
 
 Después mediante terminal ejecutaremos:
 
-```powershell
+```powershell copy
 node convert-to-json.js
 ```
 
@@ -280,7 +273,7 @@ Esto nos generará un archivo `json` en la raíz.
 
 Ahora sólo nos queda meter todos estos datos directamente en nuesta base de datos, para ello tendremos que tener arrancado MongoDB, y entonces ejecutamos lo siguiente en nuestro terminal:
 
-```powershell
+```powershell copy
 mongoimport --db="meal-tracker" --collection="recipes" --file="recipes.json" --jsonArray
 ```
 
@@ -288,18 +281,16 @@ mongoimport --db="meal-tracker" --collection="recipes" --file="recipes.json" --j
 
 Pues bien, para ello podemos recurrir a Robo 3T, o bien iniciando Mongo Shell, si elegimos esta última opción introduciremos:
 
-```powershell
+```powershell copy
 use meal-tracker
 ```
 
-```powershell
+```powershell copy
 db.recipes.find({}).pretty()
 ```
 
 Si queremos crear una colección nueva:
 
-```powershell
+```powershell copy
 db.meals.insert({ recipeId: '123', plannedDate: newDate() })
 ```
-
-Espero que te haya gustado este artículo. ❤️
