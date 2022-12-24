@@ -32,7 +32,7 @@
     }
   },
   "touchpad": {
-    "title": "Restaurar Touchpad",
+    "title": "Restaurar touchpad",
     "theme": {
       "breadcrumb": true,
       "toc": true,

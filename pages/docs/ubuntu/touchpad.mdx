@@ -1,5 +1,5 @@
 ---
-title: Restaurar Touchpad en Ubuntu
+title: Restaurar touchpad
 summary: Volver a hacer que funcione el maldito touchpad en Ubuntu
 category: ubuntu
 tags:
@@ -24,13 +24,13 @@ Esta solución consiste en crear un archivo `.sh` para que cada vez que nos pase
 
 Pero antes de nada necesitaremos la información de nuestro punto de entrada del touchpad. Para ello podemos consultar los inputs mediante:
 
-```powershell
+```powershell copy
 xinput --list
 ```
 
 En mi caso es este:
 
-```powershell
+```powershell copy
 ELAN2304:00 04F3:30FE Touchpad
 ```
 
@@ -43,13 +43,13 @@ xinput enable 'ELAN2304:00 04F3:30FE Touchpad'
 
 Le damos permisos de ejecución:
 
-```powershell
+```powershell copy
 chmod +x touchpad-reset.sh
 ```
 
 Y ejecutamos:
 
-```powershell
+```powershell copy
 ./touchpad-reset.sh
 ```
 
@@ -57,21 +57,19 @@ Y ejecutamos:
 
 Abrimos terminal y accedemos al archivo de configuración del `grub`:
 
-```powershell
+```powershell copy
 sudo nano /etc/default/grub
 ```
 
 Copiamos y pegamos lo siguiente:
 
-```
-
+```powershell copy
 GRUB_DEFAULT=0
 GRUB_TIMEOUT_STYLE=hidden
 GRUB_TIMEOUT=0
 GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
 GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
 GRUB_CMDLINE_LINUX="i8042.nopnp=1 pci=nocrs"
-
 ```
 
 Guardamos y reiniciamos.

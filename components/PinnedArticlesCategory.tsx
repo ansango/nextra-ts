@@ -13,7 +13,7 @@ export const PinnedArticlesCategory: FC<{ category: Category }> = ({
     return null;
   }
   return (
-    <section className="space-y-5 flex-grow pb-10">
+    <section className="space-y-5 flex-grow pb-10 relative z-10">
       <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight mb-4">
         Artículos destacados
       </h2>

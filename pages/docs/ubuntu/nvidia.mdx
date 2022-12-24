@@ -9,9 +9,17 @@ tags:
 publishedAt: "2022-12-23T22:00:00.000Z"
 ---
 
+import { ArticleData } from "components";
+
+<ArticleData />
+
 Si en algún momento has perdido la configuración por defecto de tus drivers privativos de Nvidia y Ubuntu no te permite seleccionarlos en "Additional Drivers", entonces puedes hacer lo siguiente:
 
-En primer lugar, busca qué controlador necesitas. ¿Cómo lo averiguas? Consultando según el modelo de tarjeta que tengas y seleccionando obviamente la opción de _Linux 64-bit_ en **Sistema Operativo** [aquí](https://www.nvidia.es/Download/index.aspx?lang=es). Es recomendable utilizar en **Tipo de descarga** la opción de _Rama de producción_, que suele ser la versión ya testeada y que da menos problemas.
+## Controlador
+
+En primer lugar, busca qué controlador necesitas. ¿Cómo lo averiguas? Consultando según el modelo de tarjeta que tengas y seleccionando obviamente la opción de _Linux 64-bit_ en **Sistema Operativo** [aquí](https://www.nvidia.es/Download/index.aspx?lang=es).
+
+Es recomendable utilizar en **Tipo de descarga** la opción de _Rama de producción_, que suele ser la versión ya testeada y que da menos problemas.
 
 En mi caso tengo una GeForce GTX 1060, así que seleccionaría estas opciones:
 
@@ -24,6 +32,8 @@ En mi caso tengo una GeForce GTX 1060, así que seleccionaría estas opciones:
 
 A continuación le damos a buscar, y podremos descargarlo, pero si no te apetece ejecutar un .run, es más fácil quedarnos con el número de versión del driver. En mi caso la **470.63.01**
 
+## Repositorio
+
 Abrimos un terminal y ejecutamos:
 
 ```powershell copy
@@ -32,4 +42,11 @@ sudo apt update
 sudo apt install nvidia-driver-470
 ```
 
-Después de la instalación reiniciamos `reboot`, y ya deberíamos tener aplicado el controlador de nuevo.
+## Reiniciar
+
+Después de la instalación reiniciamos, y ya deberíamos tener aplicado el controlador de nuevo.
+
+```powershell copy
+# Guarda cambios de lo que tengas abierto antes!
+sudo reboot
+```

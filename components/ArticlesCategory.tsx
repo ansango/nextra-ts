@@ -8,7 +8,7 @@ export const ArticlesCategory = ({ category }: { category: Category }) => {
     return null;
   }
   return (
-    <section className="space-y-5 flex-grow">
+    <section className="space-y-5 flex-grow relative z-10">
       <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight tracking-tight mb-4">
         Todos los artículos
       </h2>

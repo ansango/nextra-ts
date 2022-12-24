@@ -36,3 +36,11 @@ li {
 .nextra-toc {
   z-index: 10;
 }
+.nextra-scrollbar {
+  z-index: 10;
+  position: relative;
+}
+.nextra-sidebar-container {
+  z-index: 10;
+  position: relative;
+}
