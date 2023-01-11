@@ -60,7 +60,7 @@ const config: DocsThemeConfig = {
     light: 268,
   },
   banner: {
-    text: "ansango se está migrando 🚀",
+    text: `ansango se está migrando 🚀`,
   },
   direction: "ltr",
 };
